@@ -1,5 +1,6 @@
 import './App.css';
 import Form from "./components/Form"
+import User from "./components/User"
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import formSchema from "./validation/formSchema"
@@ -61,7 +62,6 @@ function App() {
       password: formValues.password.trim(),
       tos: formValues.tos
     }
-    console.log(newUser)
     postNewUser(newUser)
   }
 
@@ -79,6 +79,13 @@ function App() {
         disabled={disabled}
         errors={formErrors}
       />
+      {
+        users.map((user, idx) => {
+          return (
+            <User key={idx} details={user}/>
+          )
+        })
+      }
     </div>
   );
 }

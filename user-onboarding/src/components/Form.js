@@ -28,9 +28,17 @@ const Form = (props) => {
             onSubmit={handleSubmit}
         >
             <h2>Create a new user</h2>
-            <div>{errors.name}</div>
-            <div>{errors.email}</div>
-            <div>{errors.password}</div>
+            <ul style={
+            {
+                color: 'red',
+                listStyle: 'none'
+            }
+            } className="errors">
+                <li><h3>{errors.name}</h3></li>
+                <li><h3>{errors.email}</h3></li>
+                <li><h3>{errors.password}</h3></li>
+                <li><h3>{errors.tos}</h3></li>
+            </ul>
             <label>Name:
                 <input 
                     autoComplete="off"
