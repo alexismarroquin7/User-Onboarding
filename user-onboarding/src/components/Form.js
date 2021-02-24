@@ -6,6 +6,7 @@ const Form = (props) => {
 
     return (
         <form className="Form">
+            <h2>Create a new user</h2>
             <label>Name:
                 <input 
                     type="text"
@@ -27,6 +28,14 @@ const Form = (props) => {
                     value={values.password}
                 />
             </label><br />
+            <label>Agree to Terms Of Service:
+                <input 
+                    type="checkbox"
+                    name="tos"
+                    value={values.tos}
+                />
+            </label><br />
+            <button>Submit</button>
         </form>
     )
 }
