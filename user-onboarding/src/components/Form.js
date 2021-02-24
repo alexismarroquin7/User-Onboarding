@@ -15,31 +15,32 @@ const Form = (props) => {
         const valueToUse = type === 'checkbox' ? checked : value;
         change(name, valueToUse);
     }
-
+    
     const handleSubmit = e => {
         // debugger
         e.preventDefault();
         submit()
     }
-
+    
     return (
         <form 
-            className="Form"
-            onSubmit={handleSubmit}
+        className="Form"
+        onSubmit={handleSubmit}
         >
             <h2>Create a new user</h2>
+            <span>*required fields</span>
             <ul style={
-            {
-                color: 'red',
-                listStyle: 'none'
-            }
+                {
+                    color: 'red',
+                    listStyle: 'none'
+                }
             } className="errors">
                 <li><h3>{errors.name}</h3></li>
                 <li><h3>{errors.email}</h3></li>
                 <li><h3>{errors.password}</h3></li>
                 <li><h3>{errors.tos}</h3></li>
             </ul>
-            <label>Name:
+            <label>*Name:
                 <input 
                     autoComplete="off"
                     type="text"
@@ -48,7 +49,7 @@ const Form = (props) => {
                     onChange={handleChange}
                     />
             </label><br />
-            <label>Email:
+            <label>*Email:
                 <input 
                     autoComplete="off"
                     type="email"
@@ -58,7 +59,7 @@ const Form = (props) => {
                     
                     />
             </label><br />
-            <label>Password:
+            <label>*Password:
                 <input 
                     autoComplete="off"
                     type="text"
@@ -67,7 +68,7 @@ const Form = (props) => {
                     onChange={handleChange}
                     />
             </label><br />
-            <label>Agree to Terms Of Service:
+            <label>*Agree to Terms Of Service:
                 <input 
                     autoComplete="off"
                     type="checkbox"
