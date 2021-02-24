@@ -2,18 +2,35 @@ import React from "react";
 
 const Form = (props) => {
 
-    const {values, change} = props;
+    const {
+        values,
+        change,
+        submit,
+        disabled,
+        errors,
+    } = props;
 
     const handleChange = e => {
         const {name, value, checked, type} = e.target;
         const valueToUse = type === 'checkbox' ? checked : value;
-        console.log(name, value)
         change(name, valueToUse);
     }
 
+    const handleSubmit = e => {
+        // debugger
+        e.preventDefault();
+        submit()
+    }
+
     return (
-        <form className="Form">
+        <form 
+            className="Form"
+            onSubmit={handleSubmit}
+        >
             <h2>Create a new user</h2>
+            <div>{errors.name}</div>
+            <div>{errors.email}</div>
+            <div>{errors.password}</div>
             <label>Name:
                 <input 
                     autoComplete="off"
@@ -51,7 +68,7 @@ const Form = (props) => {
                     onChange={handleChange}
                 />
             </label><br />
-            <button>Submit</button>
+            <button disabled={disabled}>Submit</button>
         </form>
     )
 }
