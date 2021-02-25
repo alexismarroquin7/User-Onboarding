@@ -70,7 +70,6 @@ const Form = (props) => {
             </label><br />
             <label>*Agree to Terms Of Service:
                 <input 
-                    autoComplete="off"
                     type="checkbox"
                     name="tos"
                     value={values.tos}

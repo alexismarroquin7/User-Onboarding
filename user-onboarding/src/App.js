@@ -33,11 +33,11 @@ function App() {
     axios.post(`https://reqres.in/api/users`, newUser)
       .then(res => {
         setUsers([res.data, ...users])
-        console.log(res)
       })
       .catch(err => {
         console.log(err)
       })
+    setFormValues(initialFormValues)
   }
 
   const inputChange = (name, value) => {
