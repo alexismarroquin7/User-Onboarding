@@ -30,7 +30,7 @@ describe('User-OnBoarding Tests', () => {
     })
 
     describe('Submitting Form Success', () => {
-        it('Fills new user form inputs', () => {
+        it('Can Submit', () => {
             // Filling inputs
             nameInput()
                 .type('John Doe')
@@ -56,4 +56,27 @@ describe('User-OnBoarding Tests', () => {
         })
     })
 
+    describe('Submitting Form Failure', () => {
+        it.only('Prevents submission when name input left empty', () => {
+            // Fill out inputs
+            nameInput()
+                .type('Jane Doe')
+            emailInput()
+                .type('janedoe@domiain.com')
+                passwordInput()
+                .type('youCantGuessThisOne')
+            tosInput()
+                .click()
+            
+            // Clear Name Input
+            nameInput()
+                .clear()
+            // Assertions
+            nameInput()
+                .should('be.empty')
+            cy.contains('Must enter a name')
+            submitButton()
+                .should('be.disabled')
+        })
+    })
 })
